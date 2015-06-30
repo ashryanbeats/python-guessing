@@ -9,9 +9,15 @@ answer = random_num(topNum)
 
 print(answer)
 
-guess = int(input("What's your guess? "))
+guess_count = 0
 
-if guess != answer:
-  print("You lose!")
-else:
-  print("You win!")
+while guess_count < 3:
+  guess_count += 1
+  guess = int(input("What's your guess? "))
+
+  if guess != answer and guess_count < 3:
+    print("Nope!")
+  elif guess != answer and guess_count == 3:
+    print("You lose! The answer was {}.".format(answer))
+  else:
+    print("You win!")
